@@ -1,0 +1,26 @@
+if($_POST['formats']=='json'){
+                    $jsonData = '{"pub_name":"'.$_SESSION["user_name"].'","top_name":"'.$_POST["top_name"].'","msg":"'.$_POST["msg"].'"}';
+                    $js='{"jsonData":'.$jsonData.',"format":"'.$_POST['formats'].'"}';
+                    //echo($js);
+                }
+                elseif($_POST['formats']=='xml'){
+                    $xmlData = '<xml>'.
+                        '    <pub_name>'.$_SESSION["user_name"].'</pub_name>'.
+                        '    <top_name>'.$_POST["top_name"].'</top_name>'.
+                        '    <msg>'.$_POST["msg"].'</msg>'.
+                        '</xml>';
+                    $js='{"xmlData":"'.$xmlData.'","format":"'.$_POST['formats'].'"}';
+                    //echo($js);
+                }
+                elseif($_POST['formats']=='csv'){
+                    $csvData = 'pub_name,top_name,msg\n'. 
+                    $_SESSION["user_name"].','.$_POST["top_name"].','.$_POST["msg"];
+                    $js='{"csvData":"'.$csvData.'","format":"'.$_POST['formats'].'"}';
+                    //echo($js);
+                }
+                elseif($_POST['formats']=='tsv'){
+                    $tsvData = 'pub_name\ttop_name\tmsg\n' . 
+                    $_SESSION["user_name"].'\t'.$_POST["top_name"].'\t'.$_POST["msg"];
+                    $js='{"tsvData":"'.$tsvData.'","format":"'.$_POST['formats'].'"}';
+                    //echo($js);
+                }

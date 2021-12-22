@@ -1,0 +1,11 @@
+python -m venv .
+.\Scripts\activate
+
+pip install bottle requests response paste PyJWT
+npm install 
+
+node esb.js
+python consumer_login.py
+
+http://127.0.0.1:4444/consumer_login
+
